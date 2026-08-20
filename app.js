@@ -4,7 +4,6 @@
   /* ---------- Theme toggle: default to light, no storage ---------- */
   var themeToggle = document.querySelector('[data-theme-toggle]');
   var root = document.documentElement;
-  // Default to light mode regardless of system preference
   var theme = 'light';
   root.setAttribute('data-theme', theme);
 
@@ -88,34 +87,54 @@
     });
   }
 
-  /* ---------- Hero growth-path draw-in ---------- */
-  var drawPath = document.querySelector('[data-draw-path]');
-  if (drawPath) {
-    var length = drawPath.getTotalLength();
-    drawPath.style.strokeDasharray = length;
-    drawPath.style.strokeDashoffset = length;
-    drawPath.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(0.16,1,0.3,1)';
-    if ('IntersectionObserver' in window) {
-      var pathObserver = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              requestAnimationFrame(function () {
-                drawPath.style.strokeDashoffset = '0';
-              });
-              pathObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
-      pathObserver.observe(drawPath);
-    } else {
-      drawPath.style.strokeDashoffset = '0';
-    }
+  /* ---------- Profit counter animation (setInterval – works on all devices) ---------- */
+  function animateProfitCounter() {
+    var counter = document.getElementById('profit-counter');
+    if (!counter) return;
+
+    // Only run once
+    if (counter.dataset.animated === 'true') return;
+    counter.dataset.animated = 'true';
+
+    var target = 18.4;
+    var current = 0;
+    var duration = 1800; // ms
+    var interval = 20; // ms per step
+    var steps = duration / interval;
+    var increment = target / steps;
+
+    var timer = setInterval(function () {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      // Show the full "18.4%" with the percent sign
+      counter.textContent = current.toFixed(1) + '%';
+    }, interval);
   }
 
-  /* ---------- Early access form ---------- */
+  // Use IntersectionObserver to start counter when hero becomes visible
+  var heroVisual = document.querySelector('.hero-visual');
+  if (heroVisual && 'IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateProfitCounter();
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    revealObserver.observe(heroVisual);
+  } else if (heroVisual) {
+    // Fallback: run immediately
+    animateProfitCounter();
+  }
+
+  /* ---------- Contact form (Formspree) ---------- */
   var form = document.getElementById('interest-form');
   var statusEl = document.querySelector('[data-form-status]');
   var successEl = document.querySelector('[data-form-success]');
@@ -165,53 +184,41 @@
         return;
       }
 
-      var accessKey = form.querySelector('input[name="access_key"]').value;
       var submitBtn = form.querySelector('.form-submit');
       submitBtn.disabled = true;
       if (submitLabel) submitLabel.textContent = 'Sending…';
 
-      if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
-        /* Fallback: no email backend configured yet — open a pre-filled email */
-        var name = form.querySelector('#name').value.trim();
-        var email = form.querySelector('#email').value.trim();
-        var goal = form.querySelector('#goal').value.trim();
-        var message = form.querySelector('#message').value.trim();
-        var body =
-          'Name: ' + name + '\nEmail: ' + email + (goal ? '\nInvesting for: ' + goal : '') + (message ? '\nMessage: ' + message : '');
-        var mailto =
-          'mailto:hello@sayal.com?subject=' +
-          encodeURIComponent('New Sayal early access request') +
-          '&body=' +
-          encodeURIComponent(body);
-        window.location.href = mailto;
-        submitBtn.disabled = false;
-        if (submitLabel) submitLabel.textContent = 'Register interest';
-        setStatus('Opening your email app to send your request…', 'success');
-        return;
-      }
-
       var formData = new FormData(form);
-      fetch('https://api.web3forms.com/submit', {
+      var data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        message: formData.get('message') || ''
+      };
+
+      fetch('https://formspree.io/f/xwleypvo', {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: formData,
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
       })
         .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          submitBtn.disabled = false;
-          if (submitLabel) submitLabel.textContent = 'Register interest';
-          if (data.success) {
-            form.style.display = 'none';
-            if (successEl) successEl.classList.add('is-visible');
+          if (response.ok) {
+            return response.json();
           } else {
-            setStatus('Something went wrong. Please try again.', 'error');
+            throw new Error('Network response was not ok.');
           }
+        })
+        .then(function () {
+          submitBtn.disabled = false;
+          if (submitLabel) submitLabel.textContent = 'Send message';
+          form.style.display = 'none';
+          if (successEl) successEl.classList.add('is-visible');
         })
         .catch(function () {
           submitBtn.disabled = false;
-          if (submitLabel) submitLabel.textContent = 'Register interest';
+          if (submitLabel) submitLabel.textContent = 'Send message';
           setStatus('Something went wrong. Please try again.', 'error');
         });
     });
