@@ -28,8 +28,8 @@
   text-decoration: none;
 }
 .legal-brand svg {
-  width: 32px;
-  height: 32px;
+  width: 32px !important;
+  height: 32px !important;
   color: var(--color-primary);
 }
 .legal-nav {
@@ -44,21 +44,17 @@
   text-decoration: none;
   transition: color var(--transition-interactive);
 }
-.legal-nav a:hover {
-  color: var(--color-text);
-}
+.legal-nav a:hover { color: var(--color-text); }
 .legal-nav a[aria-current='page'] {
   color: var(--color-text);
   font-weight: 600;
 }
 
-/* Main legal content */
 .legal {
   max-width: 720px;
   margin-inline: auto;
   padding: var(--space-16) var(--space-5) var(--space-24);
 }
-
 .legal h1 {
   font-size: var(--text-3xl);
   font-weight: 700;
@@ -97,9 +93,7 @@
   margin-bottom: var(--space-4);
 }
 .legal ul li,
-.legal ol li {
-  margin-bottom: var(--space-2);
-}
+.legal ol li { margin-bottom: var(--space-2); }
 .legal a {
   color: var(--color-primary);
   font-weight: 500;
@@ -110,14 +104,8 @@
 .legal a:hover {
   text-decoration-color: var(--color-primary);
 }
-.legal strong {
-  color: var(--color-text);
-  font-weight: 700;
-}
-.legal em {
-  color: var(--color-text);
-  font-style: italic;
-}
+.legal strong { color: var(--color-text); font-weight: 700; }
+.legal em { color: var(--color-text); font-style: italic; }
 .legal code {
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
   background: var(--color-surface-offset);
@@ -127,7 +115,6 @@
   color: var(--color-text);
 }
 
-/* Notice / callout */
 .legal .notice {
   background: var(--color-surface-offset);
   border-left: 3px solid var(--color-primary);
@@ -138,11 +125,8 @@
   font-size: var(--text-sm);
   line-height: 1.7;
 }
-.legal .notice strong {
-  color: var(--color-text);
-}
+.legal .notice strong { color: var(--color-text); }
 
-/* Numbered steps – override the landing page's .steps for legal use */
 .legal .steps {
   margin-top: var(--space-4);
   display: block;
@@ -176,39 +160,13 @@
   font-family: var(--font-display);
 }
 
-/* Footer shared with the rest of the site (site-footer rules already exist) */
-.site-footer {
-  border-top: 1px solid var(--color-divider);
-  padding-block: var(--space-12);
-}
-.site-footer .container.footer-grid {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  align-items: flex-start;
-}
-.site-footer .footer-meta {
-  font-size: var(--text-xs);
-  color: var(--color-text-faint);
-  max-width: 72ch;
-  margin: 0;
-}
-
-/* Responsive */
 @media (max-width: 640px) {
   .legal-header .container {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-3);
   }
-  .legal-nav {
-    flex-wrap: wrap;
-    gap: var(--space-4);
-  }
-  .legal {
-    padding-top: var(--space-12);
-  }
-  .legal h1 {
-    font-size: var(--text-2xl);
-  }
+  .legal-nav { flex-wrap: wrap; gap: var(--space-4); }
+  .legal { padding-top: var(--space-12); }
+  .legal h1 { font-size: var(--text-2xl); }
 }
