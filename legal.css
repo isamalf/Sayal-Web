@@ -27,10 +27,10 @@
   color: var(--color-text);
   text-decoration: none;
 }
-.legal-brand svg {
+.legal-brand img {
   width: 32px !important;
   height: 32px !important;
-  color: var(--color-primary);
+  object-fit: contain;
 }
 .legal-nav {
   display: flex;
