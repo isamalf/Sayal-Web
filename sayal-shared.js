@@ -25,6 +25,8 @@
           ph_name: 'Your name',
           ph_email: 'you@example.com',
           ph_message: 'How can we help?',
+          sticky_dl: 'Get Sayal free',
+          sticky_cta: 'Download',
           nav_app: 'App',
           nav_faq: 'Questions',
           nav_contact: 'Contact',
@@ -79,6 +81,8 @@
           ph_name: 'الاسم الكامل',
           ph_email: 'بريدك الإلكتروني',
           ph_message: 'كيف يمكننا مساعدتك؟',
+          sticky_dl: 'حمّل سيال مجاناً',
+          sticky_cta: 'تحميل',
           nav_app: 'التطبيق',
           nav_faq: 'الأسئلة',
           nav_contact: 'تواصل معنا',
@@ -175,4 +179,19 @@
       if (svg) { svg.setAttribute('width', '100%'); svg.setAttribute('height', '100%'); }
     } catch (e) { qt.style.display = 'none'; }
   }
+})();
+
+/* Sticky mobile download bar: reveal after the user scrolls past the hero */
+(function () {
+  'use strict';
+  var bar = document.getElementById('sticky-dl');
+  if (!bar) return;
+  var onScroll = function () {
+    var past = window.scrollY > (window.innerHeight * 0.55);
+    var footer = document.querySelector('.site-footer');
+    var atFooter = footer ? footer.getBoundingClientRect().top < window.innerHeight - 30 : false;
+    bar.classList.toggle('show', past && !atFooter);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 })();

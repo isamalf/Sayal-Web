@@ -66,7 +66,7 @@
   </script>
 </head>
 <body class="font-sans bg-canvas text-ink antialiased">
-<div class="max-w-[1400px] mx-auto px-3 sm:px-5 pt-3 sm:pt-5">
+<div class="site-shell">
   <header class="hero-stage rounded-[26px] sm:rounded-[34px] pt-5 sm:pt-7 px-4 sm:px-10 md:px-14 pb-10 sm:pb-14">
     <div class="hero-world-dots" aria-hidden="true"></div>
     <nav class="site-header relative z-20 flex items-center justify-between max-w-6xl mx-auto" aria-label="Primary">
@@ -94,7 +94,7 @@
           </svg>
           <span id="global-lang-label">AR</span>
         </button>
-        <a href="https://apps.apple.com/app/id6817152924" target="_blank" rel="noopener noreferrer" data-i18n="nav_download"
+        <a href="/download/" data-i18n="nav_download"
            class="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-obsidian hover:bg-sayal text-white text-[13px] font-semibold transition-colors shadow-sm">Get the App</a>
       </div>
     </nav>
@@ -103,7 +103,7 @@
       <a href="/#faq" data-i18n="nav_faq">Questions</a>
       <a href="/#contact" data-i18n="nav_contact">Contact</a>
       <a href="/download/">Download</a>
-      <a href="https://apps.apple.com/app/id6817152924" target="_blank" rel="noopener noreferrer"
+      <a href="/download/"
          class="!text-white !bg-obsidian text-center rounded-full mt-3 !border-0" data-i18n="nav_download">Get the App</a>
     </div>
     <div class="relative z-10 max-w-3xl mx-auto text-center pt-10 sm:pt-14">
@@ -192,5 +192,10 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" defer></script>
 <script src="/sayal-shared.js?v=4" defer></script>
+
+  <div class="sticky-dl" id="sticky-dl" aria-hidden="false">
+    <span class="sticky-dl-text" data-i18n="sticky_dl">Get Sayal free</span>
+    <a href="#top" class="sticky-dl-btn" data-i18n="sticky_cta">Download</a>
+  </div>
 </body>
 </html>

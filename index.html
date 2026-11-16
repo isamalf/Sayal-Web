@@ -161,7 +161,7 @@
   </svg>
 
   <!-- Outer Frame Padding (Swift Cash / Memora Framer Framed Viewport) -->
-  <div class="p-2 sm:p-4 md:p-5 max-w-[1420px] mx-auto">
+  <div class="site-shell">
 
     <!-- =====================================================================
          1. FRAMED HERO STAGE (Minimalist Swift Cash / Memora Proportions)
@@ -209,8 +209,7 @@
             <span id="global-lang-label">AR</span>
           </button>
 
-          <a href="https://apps.apple.com/app/id6817152924" target="_blank" rel="noopener noreferrer"
-             data-i18n="nav_download"
+          <a href="/download/" data-i18n="nav_download"
              class="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-obsidian hover:bg-sayal text-white text-[13px] font-semibold transition-colors shadow-sm">
             Get the App
           </a>
@@ -223,7 +222,7 @@
         <a href="#faq" data-i18n="nav_faq">Questions</a>
         <a href="#contact" data-i18n="nav_contact">Contact</a>
         <a href="/download/">Download</a>
-        <a href="https://apps.apple.com/app/id6817152924" target="_blank" rel="noopener noreferrer"
+        <a href="/download/"
            class="!text-white !bg-obsidian text-center rounded-full mt-3 !border-0" data-i18n="nav_download">Get the App</a>
       </div>
 
@@ -290,12 +289,6 @@
           </button>
           <button type="button" data-screen-btn="stock" class="screen-pill px-3.5 py-1.5 rounded-full font-medium bg-white/80 text-ink/80 hover:bg-white border border-black/5 transition-all">
             <span data-i18n="pill_googl">GOOGL</span>
-          </button>
-          <button id="replay-3d-btn" type="button" class="px-3 py-1.5 rounded-full font-semibold bg-sayal/10 text-sayal hover:bg-sayal/20 transition-all inline-flex items-center gap-1" title="Replay 3D Twirl">
-            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-            </svg>
-            <span data-i18n="pill_spin">3D Spin</span>
           </button>
         </div>
 
@@ -1085,31 +1078,13 @@
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       // 1. Smooth 3D iPhone 16 Pro Twirl Entrance
+      // 3D spin removed: phone now fades/rises in place (no rotation)
       function trigger3DPhoneSpin() {
         if (!phoneRig || prefersReducedMotion) return;
         gsap.killTweensOf(phoneRig);
-
-        gsap.fromTo(
-          phoneRig,
-          {
-            rotateY: -185,
-            rotateX: 16,
-            rotateZ: -8,
-            y: 84,
-            scale: 0.82,
-            opacity: 0
-          },
-          {
-            rotateY: 0,
-            rotateX: 0,
-            rotateZ: 0,
-            y: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 1.65,
-            ease: 'expo.out'
-          }
-        );
+        gsap.fromTo(phoneRig,
+          { y: 40, scale: 0.97, opacity: 0 },
+          { y: 0, scale: 1, opacity: 1, duration: 0.9, ease: 'power3.out' });
       }
 
       if (!prefersReducedMotion) {
@@ -1131,14 +1106,6 @@
         trigger3DPhoneSpin();
       }
 
-      // Replay 3D Spin Button
-      const replayBtn = document.getElementById('replay-3d-btn');
-      if (replayBtn) {
-        replayBtn.addEventListener('click', () => {
-          trigger3DPhoneSpin();
-          countUpBalance(100417.77);
-        });
-      }
 
       // Desktop-only 3D tilt + specular glare (guarded: never fires on touch)
       const heroStage = document.getElementById('top');
@@ -1152,8 +1119,8 @@
           const ny = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
 
           gsap.to(phoneRig, {
-            rotateY: nx * 7,
-            rotateX: -ny * 4.5,
+            x: nx * 6,
+            y: -ny * 5,
             duration: 0.55,
             ease: 'power2.out',
             overwrite: 'auto'
@@ -1171,7 +1138,7 @@
         });
 
         heroStage.addEventListener('mouseleave', () => {
-          gsap.to(phoneRig, { rotateY: 0, rotateX: 0, duration: 0.85, ease: 'power3.out', overwrite: 'auto' });
+          gsap.to(phoneRig, { x: 0, y: 0, duration: 0.85, ease: 'power3.out', overwrite: 'auto' });
           if (glareEl) glareEl.style.setProperty('--glare-angle', '125deg');
           if (pillLeft && pillRight) {
             gsap.to([pillLeft, pillRight], { x: 0, y: 0, duration: 0.85, ease: 'power3.out', overwrite: 'auto' });
@@ -1182,8 +1149,6 @@
       // Scroll parallax: phone levels out + floats as hero exits into Bento
       if (phoneRig && !prefersReducedMotion && window.ScrollTrigger) {
         gsap.to(phoneRig, {
-          rotateX: 0,
-          rotateY: 0,
           y: -26,
           scale: 0.97,
           ease: 'none',
@@ -1427,6 +1392,8 @@
           ph_name: 'الاسم الكامل',
           ph_email: 'بريدك الإلكتروني',
           ph_message: 'كيف يمكننا مساعدتك؟',
+          sticky_dl: 'حمّل سيال مجاناً',
+          sticky_cta: 'تحميل',
           nav_app: 'التطبيق',
           nav_faq: 'الأسئلة',
           nav_contact: 'تواصل معنا',
@@ -1644,6 +1611,26 @@
         });
       }
     });
+
+      // Sticky mobile download bar
+      (function () {
+        var bar = document.getElementById('sticky-dl');
+        if (!bar) return;
+        function onScroll() {
+          var past = window.scrollY > (window.innerHeight * 0.55);
+          var footer = document.querySelector('.site-footer');
+          var atFooter = footer ? footer.getBoundingClientRect().top < window.innerHeight - 30 : false;
+          bar.classList.toggle('show', past && !atFooter);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+
   </script>
+
+  <div class="sticky-dl" id="sticky-dl" aria-hidden="false">
+    <span class="sticky-dl-text" data-i18n="sticky_dl">Get Sayal free</span>
+    <a href="/download/" class="sticky-dl-btn" data-i18n="sticky_cta">Download</a>
+  </div>
 </body>
 </html>

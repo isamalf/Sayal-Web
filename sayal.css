@@ -331,3 +331,134 @@ body.drawer-open { overflow: hidden; }
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
+
+/* ==========================================================================
+   FIX 1 - Full-bleed stage on wide monitors (no narrow alley)
+   ========================================================================== */
+.site-shell {
+  width: 100%;
+  max-width: 2200px;
+  margin-inline: auto;
+  padding: 12px 12px 0;
+}
+@media (min-width: 1024px) { .site-shell { padding: 16px 16px 0; } }
+@media (min-width: 1600px) { .site-shell { padding: 20px 24px 0; } }
+
+/* Let inner content breathe on ultra-wide while the stage spans the viewport */
+.hero-stage > nav,
+.hero-stage > .mobile-drawer { max-width: 1400px; margin-inline: auto; }
+@media (min-width: 1600px) {
+  .hero-stage > nav { max-width: 1600px; }
+}
+
+/* ==========================================================================
+   FIX 6 - Legal page typography (was completely unstyled)
+   ========================================================================== */
+.legal-body { color: #2B3230; font-size: 15.5px; line-height: 1.78; }
+.legal-body > *:first-child { margin-top: 0; }
+.legal-body h2 {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 2.6em 0 0.75em;
+  padding-top: 1.5em;
+  border-top: 1px solid rgba(15, 20, 17, 0.08);
+  scroll-margin-top: 90px;
+}
+.legal-body h2:first-of-type { border-top: 0; padding-top: 0; margin-top: 0.5em; }
+.legal-body h3 {
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 1.9em 0 0.6em;
+  scroll-margin-top: 90px;
+}
+.legal-body p { margin: 0 0 1.15em; max-width: 68ch; }
+.legal-body ul,
+.legal-body ol { margin: 0 0 1.35em; padding-inline-start: 1.35em; max-width: 68ch; }
+.legal-body li { margin-bottom: 0.65em; padding-inline-start: 0.2em; }
+.legal-body li::marker { color: var(--sayal); }
+.legal-body strong { color: var(--ink); font-weight: 650; }
+.legal-body a {
+  color: var(--sayal);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(28, 94, 59, 0.3);
+}
+.legal-body a:hover { text-decoration-color: var(--sayal); }
+.legal-body .notice {
+  background: #F3F1EA;
+  border: 1px solid rgba(15, 20, 17, 0.07);
+  border-inline-start: 3px solid var(--sayal);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 0 0 2em;
+  font-size: 14.5px;
+}
+.legal-body ol.steps { list-style: none; padding-inline-start: 0; counter-reset: step; }
+.legal-body ol.steps li {
+  position: relative;
+  padding-inline-start: 44px;
+  min-height: 30px;
+  margin-bottom: 0.9em;
+}
+.legal-body ol.steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: rgba(28, 94, 59, 0.1);
+  border: 1px solid rgba(28, 94, 59, 0.25);
+  color: var(--sayal);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   FIX 4 - Sticky mobile download bar
+   ========================================================================== */
+.sticky-dl {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 80;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 9px 9px 16px;
+  border-radius: 999px;
+  background: rgba(10, 12, 11, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 14px 34px -10px rgba(10, 12, 11, 0.42);
+  transform: translateY(150%);
+  transition: transform 380ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sticky-dl.show { transform: translateY(0); }
+.sticky-dl-text { color: #fff; font-size: 13.5px; font-weight: 600; white-space: nowrap; }
+.sticky-dl-btn {
+  flex: none;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--sayal-bright);
+  color: #06240F;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.sticky-dl-btn:active { transform: scale(0.97); }
+@media (max-width: 767px) { .sticky-dl { display: flex; } }
+body.drawer-open .sticky-dl { transform: translateY(150%); }
