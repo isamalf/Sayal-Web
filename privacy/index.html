@@ -1,47 +1,146 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#F4F1EA" />
-  <title>Privacy Policy — Sayal</title>
-  <meta name="description" content="How Sayal collects, uses and protects your information." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Privacy Policy | Sayal</title>
+  <meta name="description" content="How Sayal collects, uses and protects your information. Sayal is a software tool, not a broker-dealer or investment adviser." />
+  <meta name="theme-color" content="#EBE8DF" />
+  <link rel="canonical" href="https://sayal.qa/privacy/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sayal.qa/privacy/" />
+  <meta property="og:title" content="Privacy Policy | Sayal" />
+  <meta property="og:description" content="How Sayal collects, uses and protects your information. Sayal is a software tool, not a broker-dealer or investment adviser." />
+  <meta property="og:site_name" content="Sayal" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_QA" />
+  <meta property="og:image" content="https://sayal.qa/LogoSayal_256px_transparent.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Privacy Policy | Sayal" />
+  <meta name="twitter:description" content="How Sayal collects, uses and protects your information. Sayal is a software tool, not a broker-dealer or investment adviser." />
+  <meta name="twitter:image" content="https://sayal.qa/LogoSayal_256px_transparent.png" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SFCYG6K8Q2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SFCYG6K8Q2');
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" />
-  <link rel="icon" type="image/png" sizes="256x256" href="../LogoSayal_256px_transparent.png" />
-  <link rel="stylesheet" href="../base.css" />
-  <link rel="stylesheet" href="../style.css" />
-  <link rel="stylesheet" href="../legal.css" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="256x256" href="/LogoSayal_256px_transparent.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: {
+      canvas:'#EBE8DF', ink:'#0F1411', sayal:'#1C5E3B', sayalVivid:'#26B84C',
+      obsidian:'#0A0C0B', muted:'#6B7280'
+    }, fontFamily: { sans:['Plus Jakarta Sans','sans-serif'], arabic:['IBM Plex Sans Arabic','sans-serif'] } } } };
+  </script>
+  <link rel="stylesheet" href="/sayal.css?v=4" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://sayal.qa/privacy/#webpage",
+        "url": "https://sayal.qa/privacy/",
+        "name": "Privacy Policy | Sayal",
+        "description": "How Sayal collects, uses and protects your information. Sayal is a software tool, not a broker-dealer or investment adviser.",
+        "inLanguage": "en",
+        "isPartOf": { "@type": "WebSite", "url": "https://sayal.qa/", "name": "Sayal" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sayal.qa/" },
+          { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://sayal.qa/privacy/" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
-<body>
-  <header class="legal-header">
-    <div class="container">
-      <a class="legal-brand" href="../">
-        <img src="../LogoSayal_256px_transparent.png" alt="" aria-hidden="true" />
-        <span>Sayal</span>
+<body class="font-sans bg-canvas text-ink antialiased">
+<div class="max-w-[1400px] mx-auto px-3 sm:px-5 pt-3 sm:pt-5">
+  <header class="hero-stage rounded-[26px] sm:rounded-[34px] pt-5 sm:pt-7 px-4 sm:px-10 md:px-14 pb-10 sm:pb-14">
+    <div class="hero-world-dots" aria-hidden="true"></div>
+    <nav class="site-header relative z-20 flex items-center justify-between max-w-6xl mx-auto" aria-label="Primary">
+      <a href="/" class="flex items-center gap-2.5 group focus:outline-none">
+        <div class="w-10 h-10 rounded-2xl bg-white/90 border border-black/5 shadow-sm flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform">
+          <img src="/LogoSayal_256px_transparent.png" alt="Sayal Logo" class="w-full h-full object-contain" />
+        </div>
+        <span class="text-[19px] font-bold tracking-tight text-ink" data-i18n="brand">Sayal</span>
       </a>
-      <nav class="legal-nav" aria-label="Legal">
-        <a href="../privacy/" aria-current="page">Privacy</a>
-        <a href="../terms/">Terms</a>
-        <a href="../delete-account/">Delete account</a>
-      </nav>
+      <div class="hidden md:flex items-center gap-9 text-[14px] font-medium text-ink/75">
+        <a href="/#features" data-i18n="nav_app" class="hover:text-ink transition-colors">App</a>
+        <a href="/#faq" data-i18n="nav_faq" class="hover:text-ink transition-colors">Questions</a>
+        <a href="/#contact" data-i18n="nav_contact" class="hover:text-ink transition-colors">Contact</a>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-drawer"
+                class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/75 border border-black/5 shadow-sm text-ink" aria-label="Open menu">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <button id="global-lang-btn" type="button"
+                class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/75 hover:bg-white border border-black/5 text-[13px] font-semibold text-ink shadow-sm transition-all"
+                aria-label="Switch to Arabic">
+          <svg class="w-4 h-4 text-sayal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="9" /><path d="M3.6 9h16.8M3.6 15h16.8M11.5 3a17 17 0 0 0 0 18M12.5 3a17 17 0 0 1 0 18" />
+          </svg>
+          <span id="global-lang-label">AR</span>
+        </button>
+        <a href="https://apps.apple.com/app/id6817152924" target="_blank" rel="noopener noreferrer" data-i18n="nav_download"
+           class="hidden sm:inline-flex items-center px-4 py-2 rounded-full bg-obsidian hover:bg-sayal text-white text-[13px] font-semibold transition-colors shadow-sm">Get the App</a>
+      </div>
+    </nav>
+    <div id="mobile-drawer" class="mobile-drawer md:hidden">
+      <a href="/#features" data-i18n="nav_app">App</a>
+      <a href="/#faq" data-i18n="nav_faq">Questions</a>
+      <a href="/#contact" data-i18n="nav_contact">Contact</a>
+      <a href="/download/">Download</a>
+      <a href="https://apps.apple.com/app/id6817152924" target="_blank" rel="noopener noreferrer"
+         class="!text-white !bg-obsidian text-center rounded-full mt-3 !border-0" data-i18n="nav_download">Get the App</a>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto text-center pt-10 sm:pt-14">
+      <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 border border-black/5 shadow-sm text-[12px] font-semibold text-sayal mb-5">Legal</span>
+      <h1 class="text-[34px] sm:text-[46px] font-extrabold tracking-[-0.035em] leading-[1.05]">Privacy Policy</h1>
+      <p class="mt-3 text-[13px] text-muted">Last updated: 9 November 2026</p>
     </div>
   </header>
-  <main class="legal">
-
-<h1>Privacy Policy</h1>
-<p class="updated">Last updated: 9 November 2026</p>
-
+  <main class="max-w-6xl mx-auto px-4 sm:px-8 py-12 sm:py-16">
+    <div class="lg:grid lg:grid-cols-[230px_1fr] lg:gap-10">
+      <aside class="hidden lg:block">
+        <nav class="sticky top-8 text-[13px]" aria-label="On this page">
+          <p class="font-bold text-ink mb-3 text-[12px] uppercase tracking-wider">On this page</p>
+          <ul class="space-y-2 text-muted"><li><a href="#who-we-are" class="hover:text-sayal transition-colors">Who we are</a></li>
+            <li><a href="#what-sayal-is-and-is-not" class="hover:text-sayal transition-colors">What Sayal is, and is not</a></li>
+            <li><a href="#information-we-collect" class="hover:text-sayal transition-colors">Information we collect</a></li>
+            <li><a href="#how-we-use-it" class="hover:text-sayal transition-colors">How we use it</a></li>
+            <li><a href="#legal-basis" class="hover:text-sayal transition-colors">Legal basis</a></li>
+            <li><a href="#who-we-share-it-with" class="hover:text-sayal transition-colors">Who we share it with</a></li>
+            <li><a href="#international-transfers" class="hover:text-sayal transition-colors">International transfers</a></li>
+            <li><a href="#how-long-we-keep-it" class="hover:text-sayal transition-colors">How long we keep it</a></li>
+            <li><a href="#your-rights" class="hover:text-sayal transition-colors">Your rights</a></li>
+            <li><a href="#children" class="hover:text-sayal transition-colors">Children</a></li>
+            <li><a href="#security" class="hover:text-sayal transition-colors">Security</a></li>
+            <li><a href="#changes" class="hover:text-sayal transition-colors">Changes</a></li></ul>
+        </nav>
+      </aside>
+      <article class="legal-body minimal-card max-w-4xl mx-auto p-6 sm:p-10">
 <div class="notice"><strong>In short:</strong> Sayal makes investing easier with a simple app for your linked brokerage account and personal wealth goals. We collect the details needed to run Sayal, never sell your personal data, and let you delete your account from inside the app.</div>
 
-<h2>Who we are</h2>
+<h2 id="who-we-are">Who we are</h2>
 <p>Sayal ("we", "us") operates the Sayal mobile application and the website at <a href="https://sayal.qa">sayal.qa</a>. You can reach us at <a href="mailto:support@sayal.qa">support@sayal.qa</a>.</p>
 
-<h2>What Sayal is, and is not</h2>
+<h2 id="what-sayal-is-and-is-not">What Sayal is, and is not</h2>
 <p>Sayal is a financial technology application and software tool that makes it easy to link your brokerage account, follow your US stock investments, and set personal wealth and savings goals. You can use Sayal in Arabic or English and view prices in QAR or USD for convenience. If you choose, Practice Mode lets you learn risk-free with virtual money. Sayal is not a broker-dealer, bank, or investment adviser, does not custody funds, and does not provide investment advice. Live brokerage services and trade execution are provided by your linked third-party brokerage account at your direction.</p>
 
-<h2>Information we collect</h2>
+<h2 id="information-we-collect">Information we collect</h2>
 <ul>
   <li><strong>Account details you provide:</strong> first and last name, email address, mobile phone number, date of birth, country of residence, preferred language, and your Sayal account password (stored only as a salted Argon2 hash; we cannot read it).</li>
   <li><strong>Your choices:</strong> whether you have agreed to receive marketing from us, and, if you tell us, how you heard about Sayal.</li>
@@ -51,7 +150,7 @@
 </ul>
 <p>We do not collect government identification numbers, bank credentials, card details or precise location.</p>
 
-<h2>How we use it</h2>
+<h2 id="how-we-use-it">How we use it</h2>
 <ul>
   <li>To create and operate your account and keep you signed in.</li>
   <li>To send essential service emails, such as password resets.</li>
@@ -59,10 +158,10 @@
   <li>To keep the service secure and prevent abuse.</li>
 </ul>
 
-<h2>Legal basis</h2>
+<h2 id="legal-basis">Legal basis</h2>
 <p>We process your data to perform our agreement with you (running your account), with your consent (marketing), and for our legitimate interests in operating a secure service and understanding demand for it.</p>
 
-<h2>Who we share it with</h2>
+<h2 id="who-we-share-it-with">Who we share it with</h2>
 <ul>
   <li><strong>Licensed third-party market data providers</strong> — provide the market quotes and calendars shown in the app. We may send them the stock symbols being viewed; we do not send them your personal details for this purpose.</li>
   <li><strong>Your connected third-party brokerage</strong> — when you link your account, it provides the portfolio data you ask to view and receives your self-directed trade instructions for execution at your direction.</li>
@@ -71,39 +170,44 @@
 </ul>
 <p>We do not sell your personal data and we do not share it with advertisers or data brokers.</p>
 
-<h2>International transfers</h2>
+<h2 id="international-transfers">International transfers</h2>
 <p>Our servers and service providers are located in the United States. Wherever you use Sayal from, your information is transferred to and stored in the United States.</p>
 
-<h2>How long we keep it</h2>
+<h2 id="how-long-we-keep-it">How long we keep it</h2>
 <p>We keep your account data for as long as your account exists. When you delete your account, your profile, sessions, simulated orders, positions and history are permanently deleted from our live database immediately; residual copies in encrypted backups are purged within 30 days. Security logs are retained for up to 90 days.</p>
 
-<h2>Your rights</h2>
+<h2 id="your-rights">Your rights</h2>
 <p>You can view and edit your name, phone number and marketing preference in Settings. You can delete your account, and with it all of your data, from <em>Settings → Delete account</em>, or by following <a href="../delete-account/">these instructions</a>. Depending on where you live you may also have rights to access, correct, port or restrict processing of your data, or to complain to a supervisory authority. Email us to exercise any of these.</p>
 
-<h2>Children</h2>
+<h2 id="children">Children</h2>
 <p>Sayal is for adults. You must be at least 18 years old to create an account, and we verify age from the date of birth you provide. We do not knowingly collect data from anyone under 18; if you believe we have, contact us and we will delete it.</p>
 
-<h2>Security</h2>
+<h2 id="security">Security</h2>
 <p>All traffic between the app and our servers is encrypted with TLS. Passwords are hashed with Argon2. Sessions use short-lived access tokens with rotating refresh tokens. No system is perfectly secure, and we cannot guarantee absolute security.</p>
 
-<h2>Changes</h2>
+<h2 id="changes">Changes</h2>
 <p>If we change this policy in a way that matters, we will update the date above and, where appropriate, notify you in the app or by email.</p>
-
-  </main>
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="../LogoSayal_256px_transparent.png" alt="" aria-hidden="true" />
-        <span>Sayal</span>
-      </div>
-      <div class="footer-links">
-        <a href="../">Home</a>
-        <a href="../download/">Download</a>
-        <a href="../terms/">Terms</a>
-        <a href="../delete-account/">Delete account</a>
-      </div>
-      <p class="footer-meta">Sayal is a financial technology application and software tool, not a broker-dealer, bank, or investment adviser. Sayal does not custody funds or provide investment advice. Live brokerage services and trade execution are provided by your linked third-party brokerage account at your direction.</p>
+      </article>
     </div>
+  </main>
+  <footer class="site-footer pt-10 pb-14 px-4 sm:px-8 max-w-6xl mx-auto border-t border-black/10 text-xs text-muted mt-10">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-5">
+      <a href="/" class="flex items-center gap-2">
+        <img src="/LogoSayal_256px_transparent.png" alt="" class="w-7 h-7 object-contain" />
+        <span class="font-semibold text-sayal text-sm" data-i18n="brand">Sayal</span>
+      </a>
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-medium">
+        <a href="/download/" class="hover:text-ink transition-colors">Download</a>
+        <a href="/privacy/" class="hover:text-ink transition-colors">Privacy</a>
+        <a href="/terms/" class="hover:text-ink transition-colors">Terms</a>
+        <a href="/delete-account/" class="hover:text-ink transition-colors">Delete Account</a>
+      </div>
+    </div>
+    <p class="mt-7 text-[11px] leading-relaxed text-center sm:text-left max-w-4xl" data-i18n="footer_disclaimer">Investing involves risk, including the possible loss of the money you invest. Past performance does not guarantee future results. Practice mode uses virtual funds only.</p>
+    <p class="mt-3 text-[11px] text-center sm:text-left">Sayal is a financial technology application and software tool, not a broker-dealer, bank, or investment adviser. Sayal does not custody funds or provide investment advice.</p>
+    <p class="mt-4 text-[11px] text-center sm:text-left">&copy; 2026 Sayal. All rights reserved.</p>
   </footer>
+</div>
+<script src="/sayal-shared.js?v=4" defer></script>
 </body>
 </html>
